@@ -1,0 +1,35 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=4662
+
+There are several pastebin sites avalaible on the Internet, and there exist even a plugin for Gist: https://github.com/mattn/gist-vim
+
+So why yet another pastebin plugin?, well, tell me 1 site who allow you fetch the content sanetely?, most of them ask you to open a browser and click here and there to get the juice.
+
+http://sprunge.us/ doesn't not!, if you're confident in a terminal, try this:
+
+  $ ls | curl -F 'sprunge=<-' http://sprunge.us
+
+Curius for your output?, try now this:
+
+  $ curl <url-sprunge-generated>
+
+Yep, reasonable simple!?, now, suppose you're working on a script, you want to test it in a pristine env, maybe ec2 or vagrant...
+
+  $ cat script | curl -F 'sprunge=<-' http://sprunge.us
+
+And then from the pristine environment:
+
+  $ bash <(wget -qO- <url-sprunge-generated>)
+
+Cool!?, eh?, now, wouldn't it be cool if you could paste directly from vim?
+
+
+2. Usage
+
+If by now you're in love with http://sprunge.us/, you can start using it with:
+
+    :Sprunge
+
+And press <Enter>, you'll get a url with the content of your file. If you find yourself typing ':Sprunge' too often you can add a shortcut:
+
+    nnoremap <F11> :Sprunge<CR>
+
